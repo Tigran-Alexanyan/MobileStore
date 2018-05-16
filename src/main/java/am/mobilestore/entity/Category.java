@@ -14,12 +14,12 @@ import javax.persistence.*;
 public class Category {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
     @Column
     private String name;
-    @Column(name = "pic_url")
-    private String picUrl;
+    @Column(name = "pic_name")
+    private String picName;
 
 }

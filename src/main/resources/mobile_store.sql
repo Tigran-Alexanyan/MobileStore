@@ -26,19 +26,11 @@ CREATE TABLE `brand` (
   `name` varchar(255) NOT NULL,
   `pic_url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `brand` */
 
-insert  into `brand`(`id`,`name`,`pic_url`) values 
 
-(1,'Samsung','kljfbkdf'),
-
-(2,'Apple','fddfhdf'),
-
-(3,'Alcatel','4u6wjteh'),
-
-(4,'Nokia','grbfs');
 
 /*Table structure for table `category` */
 
@@ -49,19 +41,10 @@ CREATE TABLE `category` (
   `name` varchar(255) NOT NULL,
   `pic_url` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `category` */
 
-insert  into `category`(`id`,`name`,`pic_url`) values 
-
-(1,'Tablet','ndfn'),
-
-(2,'Phone','fdbdfnbfd'),
-
-(3,'Norebook','rhetg'),
-
-(4,'Tv','fn');
 
 /*Table structure for table `os` */
 
@@ -71,17 +54,13 @@ CREATE TABLE `os` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `os` */
 
-insert  into `os`(`id`,`name`) values 
 
-(1,'Android'),
 
-(2,'Ios'),
 
-(3,'Windows Phone');
 
 /*Table structure for table `picture` */
 
@@ -115,14 +94,14 @@ CREATE TABLE `product` (
   `front_camera` int(11) NOT NULL,
   `cpu` varchar(255) NOT NULL,
   `ram` int(11) NOT NULL,
-  `sd_card_slot` enum('Այո','Ոչ') NOT NULL,
+  `sd_card_slot` enum('Yes','No') NOT NULL,
   `memory` int(11) NOT NULL,
   `internet` varchar(255) NOT NULL,
-  `gps` enum('Այո','Ոչ') NOT NULL,
-  `bluetooth` enum('Այո','Ոչ') NOT NULL,
-  `3g` enum('Այո','Ոչ') NOT NULL,
-  `4g` enum('Այո','Ոչ') NOT NULL,
-  `nfc` enum('Այո','Ոչ') NOT NULL,
+  `gps` enum('Yes','No') NOT NULL,
+  `bluetooth` enum('Yes','No') NOT NULL,
+  `3g` enum('Yes','No') NOT NULL,
+  `4g` enum('Yes','No') NOT NULL,
+  `nfc` enum('Yes','No') NOT NULL,
   `charging` enum('USB Type-C','MicroUSB') NOT NULL,
   `battery_type` varchar(255) NOT NULL,
   `battery_capasity` int(11) NOT NULL,
@@ -142,7 +121,7 @@ CREATE TABLE `product` (
   CONSTRAINT `product_ibfk_1` FOREIGN KEY (`brand_id`) REFERENCES `brand` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `product_ibfk_2` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`) ON UPDATE CASCADE,
   CONSTRAINT `product_ibfk_3` FOREIGN KEY (`os_id`) REFERENCES `os` (`id`) ON UPDATE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 /*Data for the table `product` */
 

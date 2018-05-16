@@ -186,20 +186,11 @@
                 <li><a href="user-profile.html">User profile</a></li>
             </ul>
         </li>
-        <li class="active">
-            <a class="dropdown-toggle" href="form-showcase.html#">
-                <div class="pointer">
-                    <div class="arrow"></div>
-                    <div class="arrow_border"></div>
-                </div>
+        <li>
+            <a href="form-showcase.html#">
                 <i class="icon-edit"></i>
-                <span>Forms</span>
-                <i class="icon-chevron-down"></i>
+                <span>Form</span>
             </a>
-            <ul class="active submenu">
-                <li><a href="form-showcase.html" class="active">Form showcase</a></li>
-                <li><a href="form-wizard.html">Form wizard</a></li>
-            </ul>
         </li>
         <li>
             <a href="gallery.html">
@@ -207,6 +198,7 @@
                 <span>Gallery</span>
             </a>
         </li>
+
         <li>
             <a href="calendar.html">
                 <i class="icon-calendar-empty"></i>
@@ -262,22 +254,13 @@
 <!-- main container -->
 <div class="content">
 
-    <!-- settings changer -->
-    <div class="skins-nav">
-        <a href="form-showcase.html#" class="skin first_nav selected">
-            <span class="icon"></span><span class="text">Default</span>
-        </a>
-        <a href="form-showcase.html#" class="skin second_nav" data-file="css/compiled/skins/dark.css">
-            <span class="icon"></span><span class="text">Dark skin</span>
-        </a>
-    </div>
-
     <div id="pad-wrapper" class="form-page">
         <div class="row form-wrapper">
             <!-- left column -->
-            <div class="col-md-8 column">
+            <div class="col-md-6 column">
                 <form action="#" th:action="@{/admin/saveProduct}" th:object="${product}" method="post"
                       enctype="multipart/form-data">
+                    <h2>Ապրանք</h2><br><br>
                     <div class="field-box">
                         <label>Մոդել:</label>
                         <div class="col-md-7">
@@ -285,15 +268,9 @@
                         </div>
                     </div>
                     <div class="field-box">
-                        <label>Տարեթիվ:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{date}" class="form-control" placeholder="Տարեթիվ"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
                         <label>Օպերացիոն համակարգ:</label>
                         <div class="col-md-7">
-                            <select style="width:100%" class="selectBrand" th:field="*{os}">
+                            <select style="width:100%" class="selectOS" th:field="*{os}">
                                 <option value=""></option>
                                 <option th:each="os : ${allOs}"
                                         th:value="${os.id}"
@@ -308,37 +285,10 @@
                         </div>
                     </div>
                     <div class="field-box">
-                        <label>Էկրանի տեսակը:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{displayType}" class="form-control" placeholder="Էկրանի տեսակը"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Էկրանի բանաձևը:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{displayResolution}" class="form-control"
-                                   placeholder="Էկրանի բանաձևը"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Էկրանի չափսը:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{displaySize}" class="form-control"
-                                   placeholder="Էկրանի չափսը"/>
-                        </div>
-                    </div>
-
-                    <div class="field-box">
                         <label>Հիմնական տեսախցիկ:</label>
                         <div class="col-md-7">
-                            <input type="text" th:field="*{camera}" class="form-control" placeholder="Հիմնական տեսախցիկ"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Դիմային տեսախցիկ:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{frontCamera}" class="form-control"
-                                   placeholder="Դիմային տեսախցիկ"/>
+                            <input type="text" th:field="*{camera}" class="form-control"
+                                   placeholder="Հիմնական տեսախցիկ"/>
                         </div>
                     </div>
                     <div class="field-box">
@@ -350,18 +300,8 @@
                     <div class="field-box">
                         <label>Օպերատիվ հիշողություն:</label>
                         <div class="col-md-7">
-                            <input type="text" th:field="*{ram}" class="form-control" placeholder="Օպերատիվ հիշողություն"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Հիշողության քարտի բնիկը:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{sdCardSlot}">
-                                <option value=""></option>
-                                <option value="Այո">Այո</option>
-                                <option value="Ոչ">Ոչ</option>
-
-                            </select>
+                            <input type="text" th:field="*{ram}" class="form-control"
+                                   placeholder="Օպերատիվ հիշողություն"/>
                         </div>
                     </div>
                     <div class="field-box">
@@ -371,138 +311,9 @@
                         </div>
                     </div>
                     <div class="field-box">
-                        <label>Ինտերնետի հասանելիություն:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{internet}" class="form-control"
-                                   placeholder="Ինտերնետի հասանելիություն"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>GPS:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{gps}">
-                                <option value=""></option>
-                                <option value="Այո">Այո</option>
-                                <option value="Ոչ">Ոչ</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Bluetooth:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{bluetooth}">
-                                <option value=""></option>
-                                <option value="Այո">Այո</option>
-                                <option value="Ոչ">Ոչ</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>3G Ցանց:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{g3}">
-                                <option value=""></option>
-                                <option value="Այո">Այո</option>
-                                <option value="Ոչ">Ոչ</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>4G LTE Ցանց:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{g4}">
-                                <option value=""></option>
-                                <option value="Այո">Այո</option>
-                                <option value="Ոչ">Ոչ</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>NFC:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{nfc}">
-                                <option value=""></option>
-                                <option value="Այո">Այո</option>
-                                <option value="Ոչ">Ոչ</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Լիցքավորման բնիկի տեսակը:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{charging}">
-                                <option value=""></option>
-                                <option value="USB Type-C">USB Type-C</option>
-                                <option value="MicroUSB">MicroUSB</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Մարտկոցի տեսակը:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{batteryType}" class="form-control"
-                                   placeholder="Մարտկոցի տեսակը"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Մարտկոցի հզորությունը:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{batteryCapasity}" class="form-control"
-                                   placeholder="Մարտկոցի հզորությունը"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Կշիռ:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{weight}" class="form-control" placeholder="Կշիռ"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Հաստություն:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{thickness}" class="form-control" placeholder="Հաստություն"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Երկարություն:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{height}" class="form-control" placeholder="Երկարություն"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Լայնությունը:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{width}" class="form-control" placeholder="Լայնությունը"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Աուդիո:</label>
-                        <div class="col-md-7">
-                            <input type="text" th:field="*{audio}" class="form-control" placeholder="Աուդիո"/>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>SIM քարտի քանակ:</label>
-                        <div class="col-md-7">
-                            <select style="width:100%" class="selectCategory" th:field="*{sim}">
-                                <option value=""></option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-
-                            </select>
-                        </div>
-                    </div>
-                    <div class="field-box">
                         <label>Տեսակ:</label>
                         <div class="col-md-7">
-                            <select style="width:100%" class="selectBrand" th:field="*{category}">
+                            <select style="width:100%" class="selectCategory" th:field="*{category}">
                                 <option value=""></option>
                                 <option th:each="category : ${allCcategories}"
                                         th:value="${category.id}"
@@ -524,7 +335,7 @@
                     <div class="field-box">
                         <label>Նկար:</label>
                         <div class="col-md-7">
-                            <input class="form-control " type="file" name="image"/>
+                            <input class="form-control " type="file" name="image" multiple="multiple"/>
                         </div>
                     </div>
                     <button type="submit" class="btn-glow primary">Պահպանել</button>
@@ -532,51 +343,19 @@
             </div>
 
             <!-- right column -->
-            <div class="col-md-4 column pull-right">
-                <form>
+            <div class="col-md-6 column pull-right">
+                <form action="#" th:action="@{/admin/saveBrand}" th:object="${catehory}" method="post"
+                      enctype="multipart/form-data">
+                    <h2>Ապրանքանիշ</h2><br>
                     <div class="field-box">
-                        <label>Select:</label>
-                        <div class="ui-select">
-                            <select>
-                                <option>Dropdown</option>
-                                <option>Custom selects</option>
-                                <option>Pure css styles</option>
-                            </select>
-                        </div>
+                        <label>Անուն:</label>
+                        <input type="text" th:field="*{name}" class="form-control" placeholder="Անուն"/>
                     </div>
                     <div class="field-box">
-                        <label>Select2 plugin styled:</label>
-                        <select style="width:250px" class="select2">
-                            <option value=""></option>
-                            <option value="AK">Alaska</option>
-                            <option value="VT">Vermont</option>
-                            <option value="VA">Virginia</option>
-                            <option value="WV">West Virginia</option>
-                        </select>
+                        <label>Նկար:</label>
+                        <input class="form-control " type="file" name="image"/>
                     </div>
-
-                    <div class="field-box">
-                        <label>Select2 multiselect:</label>
-                        <select style="width:250px" class="select2">
-                            <option value=""></option>
-                            <option value="WV">West Virginia</option>
-                        </select>
-                    </div>
-                    <div class="field-box">
-                        <label>Input prepend append:</label>
-                        <div class="input-group">
-                            <span class="input-group-addon">@</span>
-                            <input type="text" class="form-control"/>
-                        </div>
-                        <div class="input-group">
-                            <input type="text" class="form-control"/>
-                            <span class="input-group-addon">.00</span>
-                        </div>
-                    </div>
-                    <div class="field-box">
-                        <label>Datepicker:</label>
-                        <input type="text" value="03/29/2013" class="form-control input-datepicker"/>
-                    </div>
+                    <button type="submit" class="btn-glow primary">Պահպանել</button>
                 </form>
             </div>
         </div>
@@ -602,13 +381,16 @@
 
         // select2 plugin for select elements
         $(".selectBrand").select2({
-            placeholder: "Select a Brand"
+            placeholder: "Ընտրեք ապրանքանիշը"
         });
         // select2 plugin for select elements
         $(".selectCategory").select2({
-            placeholder: "Select a Category"
+            placeholder: "Ընտրեք ապրանքանի տեսակը"
         });
-
+        // select2 plugin for select elements
+        $(".selectOS").select2({
+            placeholder: "Ընտրեք OS հարթակը"
+        });
         // datepicker plugin
         $('.input-datepicker').datepicker().on('changeDate', function (ev) {
             $(this).datepicker('hide');

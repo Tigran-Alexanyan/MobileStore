@@ -14,7 +14,7 @@ import javax.persistence.*;
 public class Picture {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private int id;
     @Column(name = "pic_url")
@@ -22,4 +22,9 @@ public class Picture {
     @ManyToOne
     private Product product;
 
+    public Picture(String picUrl, Product product) {
+        this.picUrl = picUrl;
+        this.product = product;
+    }
 }
+

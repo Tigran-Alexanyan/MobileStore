@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
 	<title>Detail Admin - Home</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -278,29 +278,27 @@
             <div class="row stats-row">
                 <div class="col-md-3 col-sm-3 stat">
                     <div class="data">
-                        <span class="number">2457</span>
-                        visits
+                        <span class="number"th:text="${products}"></span>
+                        Ապրանքներ
                     </div>
-                    <span class="date">Today</span>
                 </div>
                 <div class="col-md-3 col-sm-3 stat">
                     <div class="data">
-                        <span class="number">3240</span>
-                        users
+                        <span class="number" th:text="${brands}"></span>
+                        Ապրանքանիշ
                     </div>
-                    <span class="date">February 2013</span>
+
                 </div>
                 <div class="col-md-3 col-sm-3 stat">
                     <div class="data">
-                        <span class="number">322</span>
-                        orders
+                        <span class="number" th:text="${os}"></span>
+                        Օպերացիոն համակարգ
                     </div>
-                    <span class="date">This week</span>
                 </div>
                 <div class="col-md-3 col-sm-3 stat last">
                     <div class="data">
-                        <span class="number">$2,340</span>
-                        sales
+                        <span class="number" th:text="${categories}"></span>
+                        Ապրանքատեսակ
                     </div>
                     <span class="date">last 30 days</span>
                 </div>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html class="supports-js supports-no-touch supports-csstransforms supports-csstransforms3d supports-fontface supports-pointerevents">
+<html class="supports-js supports-no-touch supports-csstransforms supports-csstransforms3d supports-fontface supports-pointerevents"
+      xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Digital World Store - Home 1</title>
@@ -63,7 +64,7 @@
             <div class="drawer__inner">
                 <ul class="mobile-nav">
                     <li class="mobile-nav__item">
-                        <a href="index.html" class="mobile-nav__link">Home</a>
+                        <a th:href="${'/www.mobile-store.am'}" class="mobile-nav__link">Home</a>
                     </li>
                     <li class="mobile-nav__item">
                         <div class="mobile-nav__has-sublist">
@@ -525,7 +526,7 @@
 
                             <div class="grid__item large--hide medium-down--two-quarter small--three-fifths"
                                  style="background-color:#fff;">
-                                <a href="index.html" class="site-header__logo-image">
+                                <a th:href="${'/www.mobile-store.am'}" class="site-header__logo-image">
                                     <img src="../static/images/logo.png" alt="">
                                 </a>
                             </div>
@@ -546,7 +547,7 @@
 
                             <div class="grid__item large--show medium-down--hide smal--hide">
                                 <div class="header-logo grid__item large--one-fifth">
-                                    <a href="index.html" class="site-header__logo-image">
+                                    <a th:href="${'/www.mobile-store.am'}" class="site-header__logo-image">
                                         <img src="../static/images/logo.png" alt="">
                                     </a>
                                 </div>
@@ -570,7 +571,7 @@
                                     <ul class="navbar-header">
                                         <li class="site-nav__item nav-phone">
                                             <i class="fa fa-phone-square" aria-hidden="true"></i>
-                                            <span class="name">+12345678xxx</span>
+                                            <span class="name">+374 77 000 000</span>
                                         </li>
                                         <li class="site-nav__item site-nav__expanded-item">
                                             <a class="site-nav__link site-nav__link--icon js-login-modal"
@@ -1627,54 +1628,15 @@
                     <div class="grid--full grid--table">
                         <div class="grid__item large--one-whole medium-down--hide">
                             <ul class="custom-menu-icons grid--full grid--table">
-                                <li class="grid__item icon-element icon-1">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon1_100x100.png" alt="">
-                                        <div class="icon-name">Smartphone</div>
+                                <li class="grid__item icon-element icon-1" th:each="category : ${allCategories}">
+                                    <a th:href="${'/collection'}">
+                                        <img class="icon-img"
+                                             th:src="${'/category/image?fileName='+category.picName}"
+                                             alt="">
+                                        <div class="icon-name" th:text="${category.name}"></div>
                                     </a>
                                 </li>
-                                <li class="grid__item icon-element icon-2">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon2_100x100.png" alt="">
-                                        <div class="icon-name">Tablet</div>
-                                    </a>
-                                </li>
-                                <li class="grid__item icon-element icon-3">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon3_100x100.png" alt="">
-                                        <div class="icon-name">Laptop</div>
-                                    </a>
-                                </li>
-                                <li class="grid__item icon-element icon-4">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon4_100x100.png" alt="">
-                                        <div class="icon-name">Accessories</div>
-                                    </a>
-                                </li>
-                                <li class="grid__item icon-element icon-5">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon5_100x100.png" alt="">
-                                        <div class="icon-name">Camera</div>
-                                    </a>
-                                </li>
-                                <li class="grid__item icon-element icon-6">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon6_100x100.png" alt="">
-                                        <div class="icon-name">Television</div>
-                                    </a>
-                                </li>
-                                <li class="grid__item icon-element icon-7">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon7_100x100.png" alt="">
-                                        <div class="icon-name">Printer</div>
-                                    </a>
-                                </li>
-                                <li class="grid__item icon-element icon-8">
-                                    <a href="collection.html">
-                                        <img class="icon-img" src="../static/images/icon8_100x100.png" alt="">
-                                        <div class="icon-name">Speaker</div>
-                                    </a>
-                                </li>
+
                             </ul>
                         </div>
                     </div>
@@ -3651,42 +3613,43 @@
                                 <div class="area-header grid__item one-third">
                                     <h2>
                                         <img src="../static/images/icon1_100x100.png" alt="icon">
-                                        <a href="collection.html">Smartphone</a>
+                                        <a th:href="${'/collection'}">Սմարտֆոններ</a>
                                     </h2>
                                 </div>
                                 <i class="fa fa-bars mobile-toggle small--show" aria-hidden="true"></i>
                                 <div class="area-tags grid__item two-thirds">
                                     <ul class="grid__link">
                                         <li>
-                                            <a href="collection.html"><span>Apple</span></a>
+                                            <a th:href="${'/collection'}"><span>Apple</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Samsung</span></a>
+                                            <a th:href="${'/collection'}"><span>Samsung</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>LG</span></a>
+                                            <a th:href="${'/collection'}"><span>LG</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Asus</span></a>
+                                            <a th:href="${'/collection'}"><span>Asus</span></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="grid__item block_content grid--table grid--full">
                                 <div class="grid__item one-fifth content_banner position-left">
-                                    <a href="collection.html"><img src="../static/images/banner1_235x700.png"
+                                    <a th:href="${'/collection'}"><img src="../static/images/banner1_235x700.png"
                                                                    alt=""></a>
                                 </div>
                                 <div class="grid__item four-fifths content_products">
                                     <div class="grid grid--uniform grid--view-items">
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
+
+                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter" th:each="product : ${allProducts}">
                                             <div class="grid-view-item">
                                                 <div class="grid-normal-display">
                                                     <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
+                                                        <a class="grid-view-item__link" th:href="${'/www.mobile-store.am/product/' + product.id}">
                                                             <img class="grid-view-item__image"
-                                                                 src="../static/images/product10_320x320.jpg"
-                                                                 alt="Google Pixel">
+                                                                 th:src="${'/product/image?fileName='+product.picUrl}"
+                                                                 th:alt="${product.brand.name+' '+product.model}">
                                                         </a>
                                                         <div class="product-label">
                                                             <div class="label-element new-label">
@@ -3735,7 +3698,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">Google Pixel</a>
+                                                    <a th:href="${'/mobile-store.am/product?id=' + product.id}" th:text="${product.brand.name+' '+product.model}"></a>
                                                 </div>
                                                 <div class="rating-star">
 															<span class="spr-badge" data-rating="4.0">
@@ -3755,527 +3718,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product13_320x320.jpg"
-                                                                 alt="HTC 10">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element new-label">
-                                                                <span style="color:#ffffff; background-color: #ffb400;">New</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button class="btn btn-1 select-option"
-                                                                                type="button"
-                                                                                onclick="window.location='product.html'"
-                                                                                title="Select Options"><i
-                                                                                class="fa fa-bars"></i> Options
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="cum-sociis-natoque-penatibus-et-magnis-2"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">HTC 10</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" id="spr_badge_9059392838"
-                                                                  data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product__price">$517.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product4_320x320.jpg"
-                                                                 alt="iPhone 7">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element new-label">
-                                                                <span style="color:#ffffff; background-color: #ffb400;">New</span>
-                                                            </div>
-                                                            <div class="label-element best-label">
-                                                                <span style="color:#ffffff; background-color: #00ff27;">Best</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button class="btn btn-1 select-option"
-                                                                                type="button"
-                                                                                onclick="window.location='product.html'"
-                                                                                title="Select Options"><i
-                                                                                class="fa fa-bars"></i> Options
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="corporis-suscipit-laboriosam"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">iPhone 7</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product__price">$899.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product14_320x320.jpg"
-                                                                 alt="LG G5">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element new-label">
-                                                                <span style="color:#ffffff; background-color: #ffb400;">New</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button type="submit" name="add"
-                                                                                class="btn btn-1 add-to-cart AddToCart"
-                                                                                title="Buy Now"><span
-                                                                                class="AddToCartText3"><i
-                                                                                class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="cum-sociis-natoque-penatibus-et-magnis-1"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">LG G5</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" id="spr_badge_9059394054"
-                                                                  data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product-price__price">$590.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product15_320x320.jpg"
-                                                                 alt="Samsung Galaxy J7 Prime">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element new-label">
-                                                                <span style="color:#ffffff; background-color: #ffb400;">New</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button class="btn btn-1 select-option"
-                                                                                type="button"
-                                                                                onclick="window.location='product.html'"
-                                                                                title="Select Options"><i
-                                                                                class="fa fa-bars"></i> Options
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="cum-sociis-natoque-penatibus-et-magnis-6"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">Samsung Galaxy J7 Prime</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" id="spr_badge_9059387910"
-                                                                  data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product__price">$417.56</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product1_320x320.jpg"
-                                                                 alt="Samsung Galaxy S7">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element best-label">
-                                                                <span style="color:#ffffff; background-color: #00ff27;">Best</span>
-                                                            </div>
-                                                            <div class="label-element trend-label">
-                                                                <span style="color:#ffffff; background-color: #003cff;">Trending</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="hide clearfix">
-                                                                        <select name="id">
-                                                                            <option selected="selected"
-                                                                                    value="33071117382">Large - $899.00
-                                                                            </option>
-                                                                        </select>
-                                                                    </div>
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button type="submit" name="add"
-                                                                                class="btn btn-1 add-to-cart AddToCart"
-                                                                                title="Buy Now"><span
-                                                                                class="AddToCartText3"><i
-                                                                                class="fa fa-shopping-cart"></i> Add to Cart</span>
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="consequuntur-magni-dolores"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">Samsung Galaxy S7</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product-price__price">$899.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product7_320x320.jpg"
-                                                                 alt="Sony Xperia XA">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element new-label">
-                                                                <span style="color:#ffffff; background-color: #ffb400;">New</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button class="btn btn-1 select-option"
-                                                                                type="button"
-                                                                                onclick="window.location='product.html'"
-                                                                                title="Select Options"><i
-                                                                                class="fa fa-bars"></i> Options
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="cum-sociis-natoque-penatibus-et-magnis-4"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">Sony Xperia XA</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product__price">$708.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="grid__item small--one-half medium-up--one-quarter one-quarter">
-                                            <div class="grid-view-item">
-                                                <div class="grid-normal-display">
-                                                    <div class="grid__image product-image">
-                                                        <a class="grid-view-item__link" href="product.html">
-                                                            <img class="grid-view-item__image"
-                                                                 src="../static/images/product16_320x320.jpg"
-                                                                 alt="Vivo V5">
-                                                        </a>
-                                                        <div class="product-label">
-                                                            <div class="label-element new-label">
-                                                                <span style="color:#ffffff; background-color: #ffb400;">New</span>
-                                                            </div>
-                                                        </div>
-                                                        <ul class="action-button">
-                                                            <li class="add-to-cart-form">
-                                                                <form action="product.html" method="post"
-                                                                      enctype="multipart/form-data"
-                                                                      class="AddToCartForm form-vertical">
-                                                                    <div class="effect-ajax-cart">
-                                                                        <input type="hidden" name="quantity" value="1">
-                                                                        <button class="btn btn-1 select-option"
-                                                                                type="button"
-                                                                                onclick="window.location='product.html'"
-                                                                                title="Select Options"><i
-                                                                                class="fa fa-bars"></i> Options
-                                                                        </button>
-                                                                    </div>
-                                                                </form>
-                                                            </li>
-                                                            <li class="wishlist">
-                                                                <a class="wish-list btn" href="page-wishlist.html"><i
-                                                                        class="fa fa-heart" title="Wishlist"></i></a>
-                                                            </li>
-                                                            <li>
-                                                                <div class="quickview">
-                                                                    <div class="product-ajax-cart hidden-xs hidden-sm">
-                                                                        <div data-handle="etiam-dan-lorem-quis-ligula-elementum-3"
-                                                                             class="quick_shop-div">
-                                                                            <div class="btn quick_shop"
-                                                                                 data-mfp-src="#quick-shop-modal"
-                                                                                 data-effect="mfp-zoom-out">
-                                                                                <i class="fa fa-eye"
-                                                                                   title="Quick View"></i>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </div>
-                                                <div class="h4 grid-view-item__title">
-                                                    <a href="product.html">Vivo V5</a>
-                                                </div>
-                                                <div class="rating-star">
-															<span class="spr-badge" id="spr_badge_9059398406"
-                                                                  data-rating="5.0">
-																<span class="spr-starrating spr-badge-starrating">
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																	<i class="spr-icon spr-icon-star" style=""></i>
-																</span>
-																<span class="spr-badge-caption">1 review</span>
-															</span>
-                                                </div>
-                                                <div class="grid-view-item__meta">
-                                                    <span class="product-price__price">$250.00</span>
-                                                </div>
-                                            </div>
-                                        </div>
+
                                     </div>
                                 </div>
                             </div>
@@ -4295,7 +3738,7 @@
                                 <div class="area-header grid__item one-third">
                                     <h2>
                                         <img src="../static/images/icon2_100x100.png" alt="icon">
-                                        <a href="collection.html">Tablet</a>
+                                        <a th:href="${'/collection'}">Պլանշետներ</a>
                                     </h2>
                                 </div>
                                 <i class="fa fa-bars mobile-toggle small--show" aria-hidden="true"></i>
@@ -4921,36 +4364,36 @@
                                 <div class="area-header grid__item one-third">
                                     <h2>
                                         <img src="../static/images/icon3_100x100.png" alt="icon">
-                                        <a href="collection.html">Laptop</a>
+                                        <a th:href="${'/collection'}">Նոթբուկներ</a>
                                     </h2>
                                 </div>
                                 <i class="fa fa-bars mobile-toggle small--show" aria-hidden="true"></i>
                                 <div class="area-tags grid__item two-thirds">
                                     <ul class="grid__link">
                                         <li>
-                                            <a href="collection.html"><span>Asus</span></a>
+                                            <a th:href="${'/collection'}"><span>Asus</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Dell</span></a>
+                                            <a th:href="${'/collection'}"><span>Dell</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Acer</span></a>
+                                            <a th:href="${'/collection'}"><span>Acer</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Lenovo</span></a>
+                                            <a th:href="${'/collection'}"><span>Lenovo</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>HP</span></a>
+                                            <a th:href="${'/collection'}"><span>HP</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Macbook</span></a>
+                                            <a th:href="${'/collection'}"><span>Macbook</span></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="grid__item block_content grid--table grid--full">
                                 <div class="grid__item one-fifth content_banner position-left">
-                                    <a href="collection.html"><img src="../static/images/banner3_235x700.png"
+                                    <a th:href="${'/collection'}"><img src="../static/images/banner3_235x700.png"
                                                                    alt=""></a>
                                 </div>
                                 <div class="grid__item four-fifths content_products">
@@ -5562,30 +5005,30 @@
                                 <div class="area-header grid__item one-third">
                                     <h2>
                                         <img src="../static/images/icon4_100x100.png" alt="icon">
-                                        <a href="collection.html">Accessories</a>
+                                        <a th:href="${'/collection'}">Աքսեսուարներ</a>
                                     </h2>
                                 </div>
                                 <i class="fa fa-bars mobile-toggle small--show" aria-hidden="true"></i>
                                 <div class="area-tags grid__item two-thirds">
                                     <ul class="grid__link">
                                         <li>
-                                            <a href="collection.html"><span>Smartswatches</span></a>
+                                            <a th:href="${'/collection'}"><span>Smartswatches</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Headphone</span></a>
+                                            <a th:href="${'/collection'}"><span>Headphone</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Bluetooth</span></a>
+                                            <a th:href="${'/collection'}"><span>Bluetooth</span></a>
                                         </li>
                                         <li>
-                                            <a href="collection.html"><span>Keyboard</span></a>
+                                            <a th:href="${'/collection'}"><span>Keyboard</span></a>
                                         </li>
                                     </ul>
                                 </div>
                             </div>
                             <div class="grid__item block_content grid--table grid--full">
                                 <div class="grid__item one-fifth content_banner position-right">
-                                    <a href="collection.html"><img src="../static/images/banner4_235x700.jpg"
+                                    <a th:href="${'/collection'}"><img src="../static/images/banner4_235x700.jpg"
                                                                    alt=""></a>
                                 </div>
                                 <div class="grid__item four-fifths content_products">
@@ -6410,7 +5853,7 @@
                     <div class="grid">
                         <div class="grid__item one-half small--one-whole">
                             <p class="copyright">
-                                <small class="site-footer__copyright-content">©2018, <a href="index.html" title="">Digital
+                                <small class="site-footer__copyright-content">©2018, <a th:href="${'/www.mobile-store.am'}" title="">Digital
                                     World Store</a></small>
                                 <small class="site-footer__copyright-content"><a target="_blank" rel="nofollow"
                                                                                  href="https://themeforest.net/user/tadatheme/portfolio">Powered
