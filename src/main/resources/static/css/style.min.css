@@ -1,0 +1,110 @@
+html {
+    font-family: 'Gotham SSm A', 'Gotham SSm B', "Helvetica Neue", helvetica, arial, sans-serif;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%
+}
+
+body {
+    background-color: #f6f6f6;
+    color: #333;
+    margin: 0
+}
+
+h1, h2, h3, .btn {
+    font-weight: 800
+}
+
+.banner {
+    margin-bottom: 40px;
+    padding-bottom: 40px;
+    text-align: center
+}
+
+.banner__bg {
+    background-position: center center;
+    background-repeat: no-repeat;
+    min-height: 150px
+}
+
+.banner h1 {
+    color: #005792;
+    font-size: 40px;
+    margin: 0;
+    padding-top: 72px
+}
+
+.banner--internal h1 {
+    padding-top: 93px
+}
+
+.banner--404 h1 {
+    margin-bottom: 10px
+}
+
+.banner p {
+    font-size: 20px;
+    margin: 0 0 20px
+}
+
+.content p {
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0 0 30px
+}
+
+@media only screen and (min-width: 768px) {
+
+    .banner {
+        min-height: 405px;
+        padding-bottom: 0
+    }
+
+    .banner--internal .banner__bg {
+        margin-top: -45px;
+        min-height: 116px;
+        position: relative
+    }
+
+    .banner--internal .banner__bg::before {
+        background-color: #ffcd08;
+        content: " ";
+        height: 2px;
+        left: 0;
+        margin-top: 4px;
+        position: absolute;
+        top: 50%;
+        width: 100%
+    }
+
+    .banner h1 {
+        font-size: 60px
+    }
+
+    .banner p {
+        font-size: 28px
+    }
+
+}
+
+@media only screen and (min-width: 992px) {
+    html, body {
+        height: 100%
+    }
+
+    .wrapper {
+        min-height: 100%;
+        position: relative
+    }
+
+    .banner h1 {
+        font-size: 80px
+    }
+
+    .banner--suspended .banner__bg {
+        margin: 0 auto;
+        position: relative;
+        top: -60px;
+        width: 306px
+    }
+
+}
