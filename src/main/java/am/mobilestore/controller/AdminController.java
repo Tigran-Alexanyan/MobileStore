@@ -73,6 +73,8 @@ public class AdminController {
     public String saveProduct(@RequestParam(value = "image") MultipartFile[] multipartFile, @ModelAttribute(value = "product") Product product) {
         exists(productImagPpath);
         String fileName = "";
+        product.setPicUrl(fileName);
+        productRepository.save(product);
         for (MultipartFile file : multipartFile) {
             fileName = System.currentTimeMillis() + "_" + file.getOriginalFilename();
             File file1 = new File(productImagPpath + fileName);
@@ -99,7 +101,7 @@ public class AdminController {
             multipartFile.transferTo(file);
         } catch (IOException e) {
             return "redirect:/admin/forms";
-            }
-            return "redirect:/admin/forms";
+        }
+        return "redirect:/admin/forms";
     }
 }

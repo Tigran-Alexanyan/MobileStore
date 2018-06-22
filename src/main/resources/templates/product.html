@@ -656,7 +656,8 @@
                             <ul class="custom-menu-icons grid--full grid--table">
                                 <li class="grid__item icon-element icon-1" th:each="category : ${allCategories}">
                                     <a th:href="${'/collection'}">
-                                        <img class="icon-img" th:src="${'/category/image?fileName='+category.picName}" alt="">
+                                        <img class="icon-img" th:src="${'/category/image?fileName='+category.picName}"
+                                             alt="">
                                         <div class="icon-name" th:text="${category.name}"></div>
                                     </a>
                                 </li>
@@ -690,21 +691,22 @@
                         <meta itemprop="url" content="./product.html">
                         <meta itemprop="image" content="../static/images/product2_320x320.jpg">
                         <!--<div class="next-prev-products">-->
-                            <!--<div class="prev-product2">-->
-                                <!--<a th:href="${'/collection'}" title="Xiaomi Mi 5"><span class="icon"><i-->
-                                        <!--class="fa fa-angle-left" aria-hidden="true"></i></span><span class="img">-->
-										<!--<img th:src="${'/product/image?fileName='+product.picUrl}" alt=""></span></a>-->
-                            <!--</div>-->
-                            <!--<div class="next-product2">-->
-                                <!--<a th:href="${'/collection'}" title="Sony Xperia XA"><span class="img">-->
-										<!--<img th:src="${'/product/image?fileName='+product.picUrl}" alt=""></span><span-->
-                                        <!--class="icon"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>-->
-                            <!--</div>-->
+                        <!--<div class="prev-product2">-->
+                        <!--<a th:href="${'/collection'}" title="Xiaomi Mi 5"><span class="icon"><i-->
+                        <!--class="fa fa-angle-left" aria-hidden="true"></i></span><span class="img">-->
+                        <!--<img th:src="${'/product/image?fileName='+product.picUrl}" alt=""></span></a>-->
+                        <!--</div>-->
+                        <!--<div class="next-product2">-->
+                        <!--<a th:href="${'/collection'}" title="Sony Xperia XA"><span class="img">-->
+                        <!--<img th:src="${'/product/image?fileName='+product.picUrl}" alt=""></span><span-->
+                        <!--class="icon"><i class="fa fa-angle-right" aria-hidden="true"></i></span></a>-->
+                        <!--</div>-->
                         <!--</div>-->
                         <div class="grid product-single">
                             <div class="grid__item large--two-fifths text-center">
                                 <div class="product-single__photos elevatezoom" id="ProductPhoto">
-                                    <img th:src="${'/product/image?fileName='+product.picUrl}" alt="Motorola Moto 360 (2nd gen)"
+                                    <img th:src="${'/product/image?fileName='+product.picUrl}"
+                                         alt="Motorola Moto 360 (2nd gen)"
                                          id="ProductPhotoImg" data-image-id="21477894598"
                                          data-zoom-image="${'/product/image?fileName='+product.picUrl}">
                                 </div>
@@ -955,7 +957,7 @@
                             <hr class="hr--clear">
                             <div class="text-center">
                                 <a th:href="${'/collection'}" class="return-link"><i class="fa fa-angle-left"
-                                                                                 aria-hidden="true"></i> Back to
+                                                                                     aria-hidden="true"></i> Back to
                                     Smartphone</a>
                             </div>
                             <div class="grid grid__item product-information">
@@ -2610,7 +2612,8 @@
                     <div class="grid">
                         <div class="grid__item one-half small--one-whole">
                             <p class="copyright">
-                                <small class="site-footer__copyright-content">@2018, <a th:href="${'/www.mobile-store.am'}" title="">Digital
+                                <small class="site-footer__copyright-content">@2018, <a
+                                        th:href="${'/www.mobile-store.am'}" title="">Digital
                                     World Store</a></small>
                                 <small class="site-footer__copyright-content"><a target="_blank" rel="nofollow"
                                                                                  href="https://themeforest.net/user/tadatheme/portfolio">Powered

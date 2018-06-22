@@ -21,7 +21,6 @@ public class ImageController {
     private String productImagPpath;
 
 
-
     @RequestMapping(value = "/category/image", method = RequestMethod.GET)
     public void getCategoryImageAsByteArray(HttpServletResponse response,
                                             @RequestParam("fileName") String fileName) {
@@ -34,9 +33,9 @@ public class ImageController {
         }
     }
 
- @RequestMapping(value = "/product/image", method = RequestMethod.GET)
+    @RequestMapping(value = "/product/image", method = RequestMethod.GET)
     public void getProductImageAsByteArray(HttpServletResponse response,
-                                            @RequestParam("fileName") String fileName) {
+                                           @RequestParam("fileName") String fileName) {
         try {
             InputStream in = new FileInputStream(productImagPpath + fileName);
             response.setContentType(MediaType.ALL_VALUE);
@@ -45,7 +44,6 @@ public class ImageController {
             e.printStackTrace();
         }
     }
-
 
 
 }

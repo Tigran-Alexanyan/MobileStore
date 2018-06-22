@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.Optional;
+import java.util.*;
 
 @Controller
 @RequestMapping("/mobile-store.am")
@@ -29,10 +29,13 @@ public class MainController {
 
     @RequestMapping("")
     public String homepage(ModelMap map) {
-        map.addAttribute("allCategories", categoryRepository.findAll());
-        map.addAttribute("allProducts", productRepository.findAll());
+        List<Product> products = productRepository.findAll();
+        map.addAttribute("products4", products.subList(products.size()-4,products.size()));
+        map.addAttribute("categories", categoryRepository.findAll());
+        map.addAttribute("products", productRepository.findAll());
         return "index";
     }
+
 
     @RequestMapping("/product")
     public String productPage(@RequestParam(value = "id") int id, ModelMap map) {
@@ -46,4 +49,17 @@ public class MainController {
     public String collectionPage() {
         return "collection";
     }
+
+
+    @RequestMapping("/search")
+    public String searchPage(@RequestParam(value = "name") String name, ModelMap map) {
+        Set<Product> searchProducts = productRepository.findProductsByBrandNameContains(name);
+        for (Product product : productRepository.findProductsByModelContains(name)) {
+            searchProducts.add(product);
+        }
+        map.addAttribute("products", searchProducts);
+        map.addAttribute("allCategories", categoryRepository.findAll());
+        return "search";
+    }
+
 }
