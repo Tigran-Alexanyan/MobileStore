@@ -36,7 +36,6 @@ public class MainController {
         return "index";
     }
 
-
     @RequestMapping("/product")
     public String productPage(@RequestParam(value = "id") int id, ModelMap map) {
         map.addAttribute("allCategories", categoryRepository.findAll());
